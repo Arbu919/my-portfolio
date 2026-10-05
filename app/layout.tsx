@@ -16,7 +16,9 @@ export const metadata: Metadata = {
   },
 
   description: siteConfig.description,
-
+  verification: {
+    google: "oAJbRjVOGYASQBb8yzMnjX5rpXBvnrs94BRqzmgYA3g",
+  },
   keywords: [
     "Arbaaz Khan",
     "Full-Stack Developer",
@@ -24,6 +26,10 @@ export const metadata: Metadata = {
     "SaaS Development",
     "SEO",
     "GEO",
+    "AI Automation",
+    "GHL",
+    "GoHighLevel",
+    "Workflow Automation"
   ],
 
   openGraph: {
@@ -68,11 +74,7 @@ const personJsonLd = {
   ],
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: ReactNode;
-}) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html
       lang="en"
@@ -91,7 +93,7 @@ export default function RootLayout({
         <main id="main-content" className="flex-1">
           {children}
 
-          <AskArbaaz/>
+          <AskArbaaz />
         </main>
 
         <Footer />
