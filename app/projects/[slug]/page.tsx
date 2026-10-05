@@ -55,13 +55,21 @@ export default async function ProjectPage({
         </Link>
 
         <div className="mt-8 max-w-2xl">
-          <p className="font-mono text-xs text-ink-muted">
-            {project.status === "live"
-              ? "Live"
-              : project.status === "in-progress"
-                ? "In progress"
-                : "Private"}
-          </p>
+          {project.status === "live" && project.links.demo ? (
+            <a
+              href={project.links.demo}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 font-mono text-xs text-success hover:underline"
+            >
+              Live
+              <ArrowUpRight size={11} aria-hidden="true" />
+            </a>
+          ) : (
+            <p className="font-mono text-xs text-ink-muted">
+              {project.status === "live" ? "Live" : project.status === "in-progress" ? "In progress" : "Private"}
+            </p>
+          )}
           <h1 className="mt-3 font-display text-4xl text-ink md:text-5xl">
             {project.name}
           </h1>
@@ -120,13 +128,19 @@ export default async function ProjectPage({
         </div>
 
         <div className="mt-16 flex flex-col items-start gap-4 rounded-[var(--radius-card)] border border-line bg-surface p-8 sm:flex-row sm:items-center sm:justify-between">
-          <p className="font-display text-xl text-ink">
-            Have a similar problem to solve?
-          </p>
-          <Button href="/contact" variant="primary" className="gap-1.5">
-            Let&apos;s talk
-            <ArrowUpRight size={15} aria-hidden="true" />
-          </Button>
+          <p className="font-display text-xl text-ink">Have a similar problem to solve?</p>
+          <div className="flex flex-wrap gap-3">
+            {project.status === "live" && project.links.demo && (
+              <Button href={project.links.demo} variant="secondary" className="gap-1.5">
+                Visit Live Site
+                <ArrowUpRight size={15} aria-hidden="true" />
+              </Button>
+            )}
+            <Button href="/contact" variant="primary" className="gap-1.5">
+              Let&apos;s talk
+              <ArrowUpRight size={15} aria-hidden="true" />
+            </Button>
+          </div>
         </div>
       </Container>
     </div>

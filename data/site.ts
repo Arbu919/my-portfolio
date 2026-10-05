@@ -26,8 +26,8 @@ export const navItems: NavItem[] = [
 ];
 
 export const socialLinks: SocialLink[] = [
-  { label: "GitHub", href: "#", placeholder: true },
-  { label: "LinkedIn", href: "#", placeholder: true },
-  { label: "Email", href: "mailto:arbu919@gmail.com", placeholder: true },
-  { label: "WhatsApp", href: "03415235108", placeholder: true },
+  { label: "GitHub", href: "https://github.com/Arbu919", placeholder: false },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/arbaz-khan-0b923028b", placeholder: false },
+  { label: "Email", href: "mailto:arbu919@gmail.com", placeholder: false },
+  { label: "WhatsApp", href: "https://wa.me/923415235108", placeholder: false },
 ];

@@ -299,33 +299,40 @@ export default function AskArbaaz() {
 
                   {/* Message bubble */}
                   <div
-                    className={`
-                      max-w-[82%]
-                      rounded-[18px]
-                      px-4 py-2.5
-                      text-[13.5px]
-                      leading-[1.65]
-                      tracking-[-0.005em]
-                      ${
-                        message.role === "user"
-                          ? `
-                            rounded-br-[6px]
-                            bg-gradient-to-b from-white to-zinc-100
-                            text-zinc-900
-                            shadow-[0_6px_20px_-8px_rgba(255,255,255,0.35),0_1px_0_0_rgba(255,255,255,0.8)_inset]
-                          `
-                          : `
-                            rounded-bl-[6px]
-                            border border-white/[0.06]
-                            bg-gradient-to-b from-white/[0.055] to-white/[0.025]
-                            text-zinc-200
-                            shadow-[0_1px_0_0_rgba(255,255,255,0.04)_inset]
-                          `
-                      }
-                    `}
-                  >
-                    {message.content}
-                  </div>
+  className={`
+    max-w-[82%]
+    rounded-[18px]
+    px-4 py-2.5
+    text-[13.5px]
+    leading-[1.65]
+    tracking-[-0.005em]
+    ${
+      message.role === "user"
+        ? `
+          rounded-br-[6px]
+          bg-gradient-to-b from-white to-zinc-100
+          text-zinc-900
+          shadow-[0_6px_20px_-8px_rgba(255,255,255,0.35),0_1px_0_0_rgba(255,255,255,0.8)_inset]
+        `
+        : `
+          rounded-bl-[6px]
+          border border-white/[0.06]
+          bg-gradient-to-b from-white/[0.055] to-white/[0.025]
+          text-zinc-200
+          shadow-[0_1px_0_0_rgba(255,255,255,0.04)_inset]
+        `
+    }
+  `}
+>
+  {message.content.split(/\r?\n/).map((line, index) => (
+    <div
+      key={index}
+      className={line.trim().startsWith("•") ? "mt-1" : ""}
+    >
+      {line || "\u00A0"}
+    </div>
+  ))}
+</div>
                 </div>
               ))}
 

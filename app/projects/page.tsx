@@ -37,13 +37,22 @@ export default function ProjectsPage() {
                 <ProjectImage project={project} />
               </div>
 
-              <p className="mt-5 font-mono text-xs text-ink-muted">
-                {project.status === "live"
-                  ? "Live"
-                  : project.status === "in-progress"
-                    ? "In progress"
-                    : "Private"}
-              </p>
+              {project.status === "live" && project.links.demo ? (
+                <a
+                  href={project.links.demo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={(e) => e.stopPropagation()}
+                  className="mt-5 inline-flex w-fit items-center gap-1 font-mono text-xs text-success hover:underline"
+                >
+                  Live
+                  <ArrowUpRight size={11} aria-hidden="true" />
+                </a>
+              ) : (
+                <p className="mt-5 font-mono text-xs text-ink-muted">
+                  {project.status === "live" ? "Live" : project.status === "in-progress" ? "In progress" : "Private"}
+                </p>
+              )}
               <h2 className="mt-2 font-display text-xl text-ink md:text-2xl">
                 {project.name}
               </h2>

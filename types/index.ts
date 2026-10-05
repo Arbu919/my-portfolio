@@ -44,3 +44,20 @@ export interface Project {
   };
   featured: boolean;
 }
+
+export type BlogBlock =
+  | { type: "heading"; level: 2 | 3; text: string }
+  | { type: "paragraph"; text: string }
+  | { type: "list"; items: string[]; ordered?: boolean }
+  | { type: "quote"; text: string };
+
+export interface BlogPost {
+  slug: string;
+  title: string;
+  description: string;
+  author: string;
+  publishedAt: string;
+  categories: string[];
+  tags: string[];
+  content: BlogBlock[];
+}

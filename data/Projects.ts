@@ -23,7 +23,7 @@ export const projects: Project[] = [
     role: "Designed and built the full application end-to-end, from data model to UI.",
     stack: ["Next.js", "TypeScript", "MongoDB", "Prisma", "Tailwind CSS"],
     status: "live",
-    links: { caseStudy: true },
+    links: { demo: "https://mera-hisaab-ten.vercel.app/", caseStudy: true },
     featured: true,
   },
   {
@@ -48,7 +48,7 @@ export const projects: Project[] = [
     role: "Architected and built the platform, including multi-tenant data isolation and the admin system.",
     stack: ["Next.js", "TypeScript", "Node.js", "Express.js", "MongoDB", "Prisma"],
     status: "live",
-    links: { caseStudy: true },
+    links: { demo: "https://tailor-shop-beryl.vercel.app/", caseStudy: true },
     featured: true,
   },
   {

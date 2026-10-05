@@ -49,7 +49,7 @@ export function Footer() {
         </div>
 
         <div className="mt-16 flex flex-col gap-4 border-t border-line pt-8 text-xs text-ink-muted md:flex-row md:items-center md:justify-between">
-          <p>© {year} Arbaaz Khan. || Made With Next.ts</p>
+          <p>© {year} || Made With Next.ts</p>
           <Link href="/contact" className="text-ink hover:text-accent-strong">
             Have a project in mind? Let&apos;s talk.
           </Link>
