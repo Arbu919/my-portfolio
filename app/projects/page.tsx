@@ -5,6 +5,7 @@ import { Container } from "@/components/ui/container";
 import { Badge } from "@/components/ui/badge";
 import { ProjectImage } from "@/components/ui/project-image";
 import { projects } from "@/data/Projects";
+import { DemoLink } from "@/components/ui/demo-link";
 
 export const metadata: Metadata = {
   title: "Projects",
@@ -38,19 +39,14 @@ export default function ProjectsPage() {
               </div>
 
               {project.status === "live" && project.links.demo ? (
-                <a
-                  href={project.links.demo}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={(e) => e.stopPropagation()}
-                  className="mt-5 inline-flex w-fit items-center gap-1 font-mono text-xs text-success hover:underline"
-                >
-                  Live
-                  <ArrowUpRight size={11} aria-hidden="true" />
-                </a>
+                <DemoLink url={project.links.demo} /> // 👈 Replaced inline <a> tag
               ) : (
                 <p className="mt-5 font-mono text-xs text-ink-muted">
-                  {project.status === "live" ? "Live" : project.status === "in-progress" ? "In progress" : "Private"}
+                  {project.status === "live"
+                    ? "Live"
+                    : project.status === "in-progress"
+                    ? "In progress"
+                    : "Private"}
                 </p>
               )}
               <h2 className="mt-2 font-display text-xl text-ink md:text-2xl">
